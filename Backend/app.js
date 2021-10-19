@@ -1,11 +1,8 @@
-const express = require("express")
-const http = require("http")
-const socketio = require('socket.io')(http)
+const app = require('express')();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 
-const app = express()
-const server = createServer(app)
-// const io = socketio(server)
-
-server.listen(8000, () => {
-      console.log("The server is running at port: ", 8000);
-})
+const port = process.env.PORT || 3000;
+http.listen(port, () => {
+      console.log(`Socket.IO server running at http://localhost:${port}/`);
+});
