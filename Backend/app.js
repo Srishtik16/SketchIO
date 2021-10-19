@@ -1,6 +1,6 @@
 const express = require("express")
-const {createServer} = require("http")
-const socketio = require('socket.io')('http')
+const http = require("http")
+const socketio = require('socket.io')(http)
 
 const app = express()
 const server = createServer(app)
